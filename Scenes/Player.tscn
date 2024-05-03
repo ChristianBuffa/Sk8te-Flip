@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxy4bwe8tu2cy"]
+
+[ext_resource type="PackedScene" uid="uid://ckqr7fyq7vttd" path="res://Mini Skate/FBX format/character-skate-boy.fbx" id="1_l6n45"]
+[ext_resource type="PackedScene" uid="uid://kxcqrupgekl6" path="res://Mini Skate/FBX format/skateboard.fbx" id="2_i3x0u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wybhc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r7cr8"]
+radius = 0.285804
+height = 0.750531
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hm0yr"]
+size = Vector3(0.297974, 0.048584, 0.669495)
+
+[node name="Player" type="Node3D"]
+
+[node name="Terry Bogard" parent="." instance=ExtResource("1_l6n45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136344, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136344, 0)
+physics_material_override = SubResource("PhysicsMaterial_wybhc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.357984, 0)
+shape = SubResource("CapsuleShape3D_r7cr8")
+
+[node name="Skateboard" parent="." instance=ExtResource("2_i3x0u")]
+
+[node name="VehicleBody3D" type="VehicleBody3D" parent="Skateboard"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skateboard/VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003479, 0.118774, -0.00942993)
+shape = SubResource("BoxShape3D_hm0yr")
+
+[node name="FrontLeftWheel" type="VehicleWheel3D" parent="Skateboard/VehicleBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.13287, 0.0410576, 0.200862)
+
+[node name="BackLeftWheel" type="VehicleWheel3D" parent="Skateboard/VehicleBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.133, 0.041, -0.198)
+
+[node name="BackRightWheel" type="VehicleWheel3D" parent="Skateboard/VehicleBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.133, 0.041, -0.198)
+
+[node name="FrontRightWheel" type="VehicleWheel3D" parent="Skateboard/VehicleBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.133, 0.041, 0.201)
