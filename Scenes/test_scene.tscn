@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy2n5faabu7wd"]
+
+[ext_resource type="PackedScene" uid="uid://dxy4bwe8tu2cy" path="res://Scenes/Player.tscn" id="1_hyvd8"]
+[ext_resource type="PackedScene" uid="uid://b6nulagdsjtmu" path="res://Mini Skate/FBX format/rail-high.fbx" id="2_y4nvx"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vk6iq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tmtkk"]
+size = Vector3(0.100098, 0.176147, 1)
+
+[node name="TestScene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.288486, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_hyvd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232614, 0)
+engine_force = 471.14
+
+[node name="FrontLeftWheel" parent="Player" index="2"]
+engine_force = 471.14
+
+[node name="BackLeftWheel" parent="Player" index="3"]
+engine_force = 471.14
+
+[node name="BackRightWheel" parent="Player" index="4"]
+engine_force = 471.14
+
+[node name="FrontRightWheel" parent="Player" index="5"]
+engine_force = 471.14
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_vk6iq")
+
+[node name="Root Scene" parent="." instance=ExtResource("2_y4nvx")]
+transform = Transform3D(0.0273633, 0, 0.999626, 0, 1, 0, -0.999626, 0, 0.0273633, 0, 0, 1.637)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Root Scene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root Scene/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00805736, 0.360168, -3.72529e-09)
+shape = SubResource("BoxShape3D_tmtkk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.852102, 0.523376, 0, -0.523376, 0.852102, 0, 1.45015, 2.9904)
+
+[editable path="Player"]
+[editable path="Player/Root Scene"]

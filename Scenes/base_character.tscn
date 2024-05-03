@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn82sur21s1vy"]
+
+[ext_resource type="PackedScene" uid="uid://ckqr7fyq7vttd" path="res://Mini Skate/FBX format/character-skate-boy.fbx" id="1_28qoi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u0ic5"]
+height = 0.593079
+radius = 0.164111
+
+[node name="Root Scene" instance=ExtResource("1_28qoi")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="RootNode/character_skate_boy" index="1"]
+can_sleep = false
+freeze = true
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/RigidBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CylinderShape3D_u0ic5")
