@@ -8,7 +8,6 @@ size = Vector3(0.277043, 0.136264, 0.583252)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ib45"]
 resource_name = "colormap"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_bosq2")
 metallic = 0.2
 roughness = 0.8
@@ -54,6 +53,7 @@ radius = 0.285804
 height = 0.750531
 
 [node name="Player" type="VehicleBody3D"]
+mass = 70.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.00604, 0, 0, 0, 1.00604, 0, 0, 0, 1.00604, -0.00503794, 0.0675451, 0.00012207)
@@ -77,6 +77,7 @@ shape = SubResource("CapsuleShape3D_r7cr8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.0390057, 0.200862)
 use_as_traction = true
 wheel_radius = 0.04
+suspension_travel = 0.01
 suspension_stiffness = 200.0
 damping_compression = 1.0
 damping_relaxation = 5.0
@@ -85,6 +86,7 @@ damping_relaxation = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.0389481, -0.198)
 use_as_traction = true
 wheel_radius = 0.04
+suspension_travel = 0.01
 suspension_stiffness = 200.0
 damping_compression = 1.0
 damping_relaxation = 5.0
@@ -93,6 +95,7 @@ damping_relaxation = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.0389481, -0.198)
 use_as_traction = true
 wheel_radius = 0.04
+suspension_travel = 0.01
 suspension_stiffness = 200.0
 damping_compression = 1.0
 damping_relaxation = 5.0
@@ -101,6 +104,7 @@ damping_relaxation = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.0389481, 0.201)
 use_as_traction = true
 wheel_radius = 0.04
+suspension_travel = 0.01
 suspension_stiffness = 200.0
 damping_compression = 1.0
 damping_relaxation = 5.0
