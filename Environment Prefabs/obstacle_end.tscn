@@ -7,7 +7,7 @@ data = PackedVector3Array(-0.2898, 0.2224, 0, -0.2598, 0.15, 0, -0.318, 0.2224, 
 
 [node name="ObstacleEnd" instance=ExtResource("1_s513t")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RootNode/obstacle_end" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="RootNode/obstacle_end" index="0" groups=["Obstacle"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/obstacle_end/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_utyhj")

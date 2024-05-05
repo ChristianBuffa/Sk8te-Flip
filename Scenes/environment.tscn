@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=17 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://codl1gv231urp" path="res://Environment Prefabs/bowl_side.tscn" id="13_nqe5c"]
 [ext_resource type="PackedScene" uid="uid://d306uuqh6d06v" path="res://Environment Prefabs/bowl_corner_inner.tscn" id="14_sh81s"]
 [ext_resource type="PackedScene" uid="uid://cl2duykm7vgvw" path="res://Environment Prefabs/bowl_corner_outer.tscn" id="15_su81n"]
+[ext_resource type="PackedScene" uid="uid://dxy4bwe8tu2cy" path="res://Scenes/Player/Player.tscn" id="16_8blqo"]
 
 [node name="Environment" type="Node3D"]
 
@@ -302,4 +303,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0553363, 2)
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 3, 0, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.5, 0.612372, -0.612372, 0, 0.707107, 0.707107, 0.866025, -0.353553, 0.353553, 0, 0, 0)
+transform = Transform3D(0.5, 0.813798, -0.296198, 0, 0.34202, 0.939693, 0.866025, -0.469846, 0.17101, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("16_8blqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129088, 0.0986233, 0.426171)
