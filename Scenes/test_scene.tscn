@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cy2n5faabu7wd"]
 
-[ext_resource type="PackedScene" uid="uid://dxy4bwe8tu2cy" path="res://Scenes/Player.tscn" id="1_hyvd8"]
+[ext_resource type="PackedScene" uid="uid://dxy4bwe8tu2cy" path="res://Scenes/Player/Player.tscn" id="1_hyvd8"]
 [ext_resource type="PackedScene" uid="uid://b6nulagdsjtmu" path="res://Mini Skate/FBX format/rail-high.fbx" id="2_y4nvx"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vk6iq"]
