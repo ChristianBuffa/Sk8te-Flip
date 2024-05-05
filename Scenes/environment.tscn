@@ -1,0 +1,139 @@
+[gd_scene load_steps=13 format=3 uid="uid://hkqxvv43a5na"]
+
+[ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
+[ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
+[ext_resource type="PackedScene" uid="uid://b8i7l17wxliej" path="res://Environment Prefabs/pallet.tscn" id="3_73fdy"]
+[ext_resource type="PackedScene" uid="uid://obgvquerfy2l" path="res://Environment Prefabs/obstacle_middle.tscn" id="4_htg4x"]
+[ext_resource type="PackedScene" uid="uid://blhdam0by4l6u" path="res://Environment Prefabs/obstacle_end.tscn" id="5_nfta3"]
+[ext_resource type="PackedScene" uid="uid://oycbjynhyg4x" path="res://Environment Prefabs/steps.tscn" id="6_wxx4a"]
+[ext_resource type="PackedScene" uid="uid://c4qgws1lsw0l7" path="res://Environment Prefabs/rail_slope.tscn" id="7_g402y"]
+[ext_resource type="PackedScene" uid="uid://b0vdu7uaoehan" path="res://Environment Prefabs/rail_curve.tscn" id="8_08tmp"]
+[ext_resource type="PackedScene" uid="uid://cdadno3txgxcp" path="res://Environment Prefabs/rail_low.tscn" id="9_rr5gk"]
+[ext_resource type="PackedScene" uid="uid://c07183d30kedw" path="res://Environment Prefabs/structure_platform.tscn" id="10_6ovlp"]
+[ext_resource type="PackedScene" uid="uid://crqp4p51oo3mt" path="res://Environment Prefabs/floor_wood.tscn" id="10_hyd5s"]
+[ext_resource type="PackedScene" uid="uid://c1y56asyxdfjb" path="res://Environment Prefabs/half_pipe.tscn" id="12_jxd58"]
+
+[node name="Environment" type="Node3D"]
+
+[node name="ObstacleBox" parent="." instance=ExtResource("2_d5vch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Pallet" parent="." instance=ExtResource("3_73fdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Pallet2" parent="." instance=ExtResource("3_73fdy")]
+transform = Transform3D(0.97093, 0, -0.239364, 0, 1, 0, 0.239364, 0, 0.97093, 0, 0.13525, -2)
+
+[node name="WoodenStructure" type="Node3D" parent="."]
+
+[node name="Steps2" parent="WoodenStructure" instance=ExtResource("6_wxx4a")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, -10)
+
+[node name="Steps3" parent="WoodenStructure" instance=ExtResource("6_wxx4a")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.99802, 0.00191319, -8.99847)
+
+[node name="HalfPipe" parent="WoodenStructure" instance=ExtResource("12_jxd58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="HalfPipe4" parent="WoodenStructure" instance=ExtResource("12_jxd58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7)
+
+[node name="HalfPipe2" parent="WoodenStructure" instance=ExtResource("12_jxd58")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.79645, -0.400998, -8)
+
+[node name="HalfPipe5" parent="WoodenStructure" instance=ExtResource("12_jxd58")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.00148, -0.400998, -8)
+
+[node name="HalfPipe6" parent="WoodenStructure" instance=ExtResource("12_jxd58")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00147748, -0.400998, -9.80885)
+
+[node name="HalfPipe7" parent="WoodenStructure" instance=ExtResource("12_jxd58")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.987108, -0.400998, -9.80885)
+
+[node name="HalfPipe3" parent="WoodenStructure" instance=ExtResource("12_jxd58")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.79645, -0.400998, -9)
+
+[node name="StructurePlatform" parent="WoodenStructure" instance=ExtResource("10_6ovlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
+
+[node name="StructurePlatform2" parent="WoodenStructure" instance=ExtResource("10_6ovlp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -7.5)
+
+[node name="FloorWood2" parent="WoodenStructure" instance=ExtResource("10_hyd5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.4, -8)
+
+[node name="FloorWood3" parent="WoodenStructure" instance=ExtResource("10_hyd5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -9.00661)
+
+[node name="FloorWood" parent="WoodenStructure" instance=ExtResource("10_hyd5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.4, -9.00035)
+
+[node name="FloorWood4" parent="WoodenStructure" instance=ExtResource("10_hyd5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, -9.00258)
+
+[node name="FloorWood5" parent="WoodenStructure" instance=ExtResource("10_hyd5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.998662, 0.398976, -8.49825)
+
+[node name="FloorWood6" parent="WoodenStructure" instance=ExtResource("10_hyd5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -8.49859)
+
+[node name="Steps" parent="WoodenStructure" instance=ExtResource("6_wxx4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7)
+
+[node name="Rail" type="Node3D" parent="."]
+
+[node name="RailLow" parent="Rail" instance=ExtResource("9_rr5gk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 0, -4.5)
+
+[node name="RailLow2" parent="Rail" instance=ExtResource("9_rr5gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -3.5)
+
+[node name="RailCurve" parent="Rail" instance=ExtResource("8_08tmp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+
+[node name="Obstacle" type="Node3D" parent="."]
+
+[node name="ObstacleMiddle" parent="Obstacle" instance=ExtResource("4_htg4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="ObstacleEnd" parent="Obstacle" instance=ExtResource("5_nfta3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5)
+
+[node name="ObstacleMiddle2" parent="Obstacle" instance=ExtResource("4_htg4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="RailSlope" parent="Obstacle" instance=ExtResource("7_g402y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0.1, -3)
+
+[node name="Pallet3" parent="Obstacle" instance=ExtResource("3_73fdy")]
+transform = Transform3D(0.988234, 0, 0.152951, 0, 1, 0, -0.152951, 0, 0.988234, -1.74679, 0, -2.73305)
+
+[node name="Pallet5" parent="Obstacle" instance=ExtResource("3_73fdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.20107, 0, -2.78925)
+
+[node name="Pallet4" parent="Obstacle" instance=ExtResource("3_73fdy")]
+transform = Transform3D(0.879707, 0, -0.475517, 0, 1, 0, 0.475517, 0, 0.879707, -2.01293, 0, -3.20012)
+
+[node name="Floor" type="Node3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 5, 0, -10)
+
+[node name="FloorConcrete" parent="Floor" instance=ExtResource("1_d6y7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="FloorConcrete2" parent="Floor" instance=ExtResource("1_d6y7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+
+[node name="FloorConcrete3" parent="Floor" instance=ExtResource("1_d6y7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
+
+[node name="FloorConcrete4" parent="Floor" instance=ExtResource("1_d6y7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="FloorConcrete5" parent="Floor" instance=ExtResource("1_d6y7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="FloorConcrete6" parent="Floor" instance=ExtResource("1_d6y7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="FloorConcrete7" parent="Floor" instance=ExtResource("1_d6y7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
