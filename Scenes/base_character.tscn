@@ -1,18 +1,121 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn82sur21s1vy"]
+[gd_scene load_steps=6 format=3 uid="uid://cn82sur21s1vy"]
 
 [ext_resource type="PackedScene" uid="uid://ckqr7fyq7vttd" path="res://Mini Skate/FBX format/character-skate-boy.fbx" id="1_28qoi"]
+[ext_resource type="Script" path="res://Scenes/Ragdoll.gd" id="2_r3x6d"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_u0ic5"]
-height = 0.593079
-radius = 0.164111
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_58jh5"]
+radius = 0.103901
+height = 0.336925
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s0wy2"]
+radius = 0.0666636
+height = 0.186664
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_00ng3"]
+height = 0.596429
+radius = 0.153777
 
 [node name="Root Scene" instance=ExtResource("1_28qoi")]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="RootNode/character_skate_boy" index="1"]
-can_sleep = false
-freeze = true
-continuous_cd = true
+[node name="Physical Bone root" type="PhysicalBone3D" parent="RootNode/character_skate_boy/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.337505, 0)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.337505)
+body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.337505, 0)
+bone_name = "root"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/RigidBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-shape = SubResource("CylinderShape3D_u0ic5")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/Skeleton3D/Physical Bone root" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_58jh5")
+
+[node name="Physical Bone torso" type="PhysicalBone3D" parent="RootNode/character_skate_boy/Skeleton3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -1.44382e-15, 0.277387, 0.0121801)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0409301, 0.101137)
+body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.101137, 0.0409301)
+bone_name = "torso"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/Skeleton3D/Physical Bone torso" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_s0wy2")
+
+[node name="Physical Bone head" type="PhysicalBone3D" parent="RootNode/character_skate_boy/Skeleton3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.512699, 0.591498, 0.0385688)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512699, -0.0409301, 0.248248)
+body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.512699, 0.248248, 0.0409301)
+bone_name = "head"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/Skeleton3D/Physical Bone head" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.511213, 0.0200806, -0.0186716)
+shape = SubResource("CapsuleShape3D_s0wy2")
+
+[node name="Physical Bone right leg" type="PhysicalBone3D" parent="RootNode/character_skate_boy/Skeleton3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.609064, 0.0630391, -0.0489044)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525493, 0.0201544, -0.113211)
+body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.525493, -0.113211, -0.0201544)
+bone_name = "leg_right"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/Skeleton3D/Physical Bone right leg" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.511213, 0.0200806, -0.0186716)
+shape = SubResource("CapsuleShape3D_s0wy2")
+
+[node name="Physical Bone left leg" type="PhysicalBone3D" parent="RootNode/character_skate_boy/Skeleton3D" index="6"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.429314, 0.0655097, -0.0489044)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512885, 0.0201544, -0.11074)
+body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.512885, -0.11074, -0.0201544)
+bone_name = "leg_left"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/Skeleton3D/Physical Bone left leg" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.511213, 0.0200806, -0.0186716)
+shape = SubResource("CapsuleShape3D_s0wy2")
+
+[node name="Physical Bone right arm" type="PhysicalBone3D" parent="RootNode/character_skate_boy/Skeleton3D" index="7"]
+transform = Transform3D(0.389104, -0.0670598, -0.91875, 0.0822177, 0.995895, -0.0378702, 0.917517, -0.060802, 0.39302, -0.672739, 0.212866, 0.166338)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0606065, 0.0473249, -0.601289)
+body_offset = Transform3D(0.389104, -0.0670598, -0.91875, 0.0822177, 0.995895, -0.0378702, 0.917517, -0.060802, 0.39302, -0.572842, -0.0748844, 0.183588)
+bone_name = "arm_right"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/Skeleton3D/Physical Bone right arm" index="0"]
+transform = Transform3D(1, 0, -4.09782e-08, 0, -1.86265e-09, 1, 0, -1, -2.04891e-08, 0.0267241, 0.0528011, -0.422368)
+shape = SubResource("CapsuleShape3D_s0wy2")
+
+[node name="Physical Bone left arm" type="PhysicalBone3D" parent="RootNode/character_skate_boy/Skeleton3D" index="8"]
+transform = Transform3D(-0.415567, -0.000279473, -0.909563, 0.0822177, 0.995895, -0.0378702, 0.905839, -0.0905198, -0.413838, -0.0913768, 0.207933, -0.164017)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.060023, 0.0661501, -0.237736)
+body_offset = Transform3D(-0.415567, -0.000279473, -0.909563, 0.0822177, 0.995895, -0.0378702, 0.905839, -0.0905198, -0.413838, -0.191274, -0.0798166, -0.146767)
+bone_name = "arm_left"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/character_skate_boy/Skeleton3D/Physical Bone left arm" index="0"]
+transform = Transform3D(1, 0, -4.09782e-08, 0, -1.86265e-09, 1, 0, -1, -2.04891e-08, 0.0267241, 0.0528011, -0.422368)
+shape = SubResource("CapsuleShape3D_s0wy2")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+script = ExtResource("2_r3x6d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.324548, 0)
+shape = SubResource("CylinderShape3D_00ng3")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
