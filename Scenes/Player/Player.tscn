@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cn82sur21s1vy" path="res://Scenes/Player/base_character.tscn" id="2_okvqg"]
 [ext_resource type="Script" path="res://Scenes/camera_follow.gd" id="4_5ah10"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yr1u5"]
-size = Vector3(0.277043, 0.136264, 0.583252)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qn7qp"]
+points = PackedVector3Array(0.15, 0.0432968, 0.249961, 0.15, -2.72776e-15, 0.224951, 0.15, 0.0865937, 0.224951, 0.12498, 0.136603, 0.287441, 0.12498, 0.0865937, 0.287441, -2.93702e-05, 0.0865937, 0.349932, -0.15, -2.72776e-15, 0.224951, 0.15, -2.72776e-15, -0.22502, 0.15, 0.136603, 0.14999, -2.93702e-05, 0.136603, 0.349932, -0.12501, 0.0865937, 0.287441, -0.15, 0.0432968, 0.249961, -0.15, -2.72776e-15, -0.22502, -2.93702e-05, 0.0865937, -0.35, 0.15, 0.0432968, -0.250029, 0.15, 0.136603, -0.150059, -0.12501, 0.136603, 0.287441, -0.15, 0.0865937, 0.224951, -0.15, 0.0432968, -0.250029, -0.12501, 0.0865937, -0.28751, -2.93702e-05, 0.136603, -0.35, 0.12498, 0.0865937, -0.28751, 0.12498, 0.136603, -0.28751, 0.15, 0.0865937, -0.22502, -0.15, 0.136603, 0.14999, -0.15, 0.0865937, -0.22502, -0.12501, 0.136603, -0.28751, -0.15, 0.136603, -0.150059)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ib45"]
 resource_name = "colormap"
@@ -48,59 +48,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_medmt")
 
-[node name="Player" type="VehicleBody3D"]
+[node name="Player" type="RigidBody3D"]
 script = ExtResource("1_3mnds")
 acceleration = 10.0
 maxSpeed = 100.0
 minSpeed = -10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.00604, 0, 0, 0, 1.00604, 0, 0, 0, 1.00604, -0.00503794, 0.0675451, 0.00012207)
-shape = SubResource("BoxShape3D_yr1u5")
+shape = SubResource("ConvexPolygonShape3D_qn7qp")
 
-[node name="skateboard" type="MeshInstance3D" parent="."]
+[node name="skateboard" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("ArrayMesh_6drva")
 skeleton = NodePath("")
 
-[node name="FrontLeftWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.0390057, 0.200862)
-use_as_traction = true
-use_as_steering = true
-wheel_radius = 0.04
-suspension_travel = 0.01
-suspension_stiffness = 200.0
-damping_compression = 1.0
-damping_relaxation = 5.0
-
-[node name="BackLeftWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.0389481, -0.198)
-use_as_traction = true
-wheel_radius = 0.04
-suspension_travel = 0.01
-suspension_stiffness = 200.0
-damping_compression = 1.0
-damping_relaxation = 5.0
-
-[node name="BackRightWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.0389481, -0.198)
-use_as_traction = true
-wheel_radius = 0.04
-suspension_travel = 0.01
-suspension_stiffness = 200.0
-damping_compression = 1.0
-damping_relaxation = 5.0
-
-[node name="FrontRightWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.0389481, 0.201)
-use_as_traction = true
-use_as_steering = true
-wheel_radius = 0.04
-suspension_travel = 0.01
-suspension_stiffness = 200.0
-damping_compression = 1.0
-damping_relaxation = 5.0
-
-[node name="Root Scene" parent="." instance=ExtResource("2_okvqg")]
+[node name="Character" parent="." instance=ExtResource("2_okvqg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137802, 0)
 
 [node name="CameraPivot" type="Node3D" parent="."]
