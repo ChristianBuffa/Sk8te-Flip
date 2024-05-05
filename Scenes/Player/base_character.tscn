@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cn82sur21s1vy"]
 
 [ext_resource type="PackedScene" uid="uid://ckqr7fyq7vttd" path="res://Mini Skate/FBX format/character-skate-boy.fbx" id="1_28qoi"]
-[ext_resource type="Script" path="res://Scenes/Ragdoll.gd" id="2_r3x6d"]
+[ext_resource type="Script" path="res://Scenes/Player/Ragdoll.gd" id="2_r3x6d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_58jh5"]
 radius = 0.103901

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxy4bwe8tu2cy"]
+[gd_scene load_steps=8 format=3 uid="uid://dxy4bwe8tu2cy"]
 
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_3mnds"]
 [ext_resource type="Texture2D" uid="uid://c0on8q16axhb1" path="res://Mini Skate/FBX format/skateboard-574cd99b67f687f2ccb3d6c12bb685f0_colormap.png" id="2_bosq2"]
-[ext_resource type="PackedScene" path="res://Scenes/base_character.tscn" id="2_okvqg"]
+[ext_resource type="PackedScene" uid="uid://cn82sur21s1vy" path="res://Scenes/Player/base_character.tscn" id="2_okvqg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yr1u5"]
 size = Vector3(0.277043, 0.136264, 0.583252)
@@ -47,7 +48,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_medmt")
 
 [node name="Player" type="VehicleBody3D"]
-mass = 70.0
+script = ExtResource("1_3mnds")
+acceleration = 10.0
+maxSpeed = 100.0
+minSpeed = -10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.00604, 0, 0, 0, 1.00604, 0, 0, 0, 1.00604, -0.00503794, 0.0675451, 0.00012207)
