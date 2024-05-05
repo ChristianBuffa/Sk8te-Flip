@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=16 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://c07183d30kedw" path="res://Environment Prefabs/structure_platform.tscn" id="10_6ovlp"]
 [ext_resource type="PackedScene" uid="uid://crqp4p51oo3mt" path="res://Environment Prefabs/floor_wood.tscn" id="10_hyd5s"]
 [ext_resource type="PackedScene" uid="uid://c1y56asyxdfjb" path="res://Environment Prefabs/half_pipe.tscn" id="12_jxd58"]
+[ext_resource type="PackedScene" uid="uid://codl1gv231urp" path="res://Environment Prefabs/bowl_side.tscn" id="13_nqe5c"]
+[ext_resource type="PackedScene" uid="uid://d306uuqh6d06v" path="res://Environment Prefabs/bowl_corner_inner.tscn" id="14_sh81s"]
+[ext_resource type="PackedScene" uid="uid://cl2duykm7vgvw" path="res://Environment Prefabs/bowl_corner_outer.tscn" id="15_su81n"]
 
 [node name="Environment" type="Node3D"]
 
@@ -136,4 +139,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
 [node name="FloorConcrete7" parent="Floor" instance=ExtResource("1_d6y7l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Bowl" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.8, -3)
+
+[node name="BowlSide" parent="Bowl" instance=ExtResource("13_nqe5c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
+
+[node name="BowlSide2" parent="Bowl" instance=ExtResource("13_nqe5c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 2)
+
+[node name="BowlSide3" parent="Bowl" instance=ExtResource("13_nqe5c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 3)
+
+[node name="BowlCornerInner" parent="Bowl" instance=ExtResource("14_sh81s")]
+
+[node name="BowlSide4" parent="Bowl" instance=ExtResource("13_nqe5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.000223219, 0)
+
+[node name="BowlCornerOuter" parent="Bowl/BowlSide4" instance=ExtResource("15_su81n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
