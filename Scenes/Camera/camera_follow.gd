@@ -8,7 +8,7 @@ func _process(delta):
 	var current_velocity = get_parent().get_linear_velocity()
 	current_velocity.y = 0 
 	
-	if current_velocity.length_squared() > 1:
+	if current_velocity.length_squared() > 0.01:
 		direction = lerp(direction, -current_velocity.normalized(), smooth_speed * delta)
 	
 	global_transform.basis = get_rotation_from_direction(direction)
