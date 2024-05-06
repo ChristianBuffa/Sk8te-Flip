@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dge141g0bdyd0"]
+[gd_scene load_steps=13 format=3 uid="uid://dge141g0bdyd0"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Skate.gd" id="1_mav0y"]
 [ext_resource type="Texture2D" uid="uid://c0on8q16axhb1" path="res://Mini Skate/FBX format/skateboard-574cd99b67f687f2ccb3d6c12bb685f0_colormap.png" id="2_8ipfh"]
 [ext_resource type="PackedScene" uid="uid://cn82sur21s1vy" path="res://Scenes/Player/base_character.tscn" id="3_dipqk"]
 [ext_resource type="Script" path="res://Scenes/Camera/camera_follow.gd" id="4_vv1l6"]
+[ext_resource type="PackedScene" uid="uid://ij73ur0dlqjb" path="res://Scenes/point_system.tscn" id="5_m2gok"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2dbxc"]
 points = PackedVector3Array(0.15, 0.0432967, 0.249961, 0.15, -2.72776e-15, 0.224951, 0.15, 0.0865934, 0.224951, 0.12498, 0.136603, 0.287441, 0.12498, 0.0865934, 0.287441, -2.93702e-05, 0.0865934, 0.349932, -0.15, -2.72776e-15, 0.224951, 0.15, -2.72776e-15, -0.22502, 0.15, 0.136603, 0.14999, -2.93702e-05, 0.136603, 0.349932, -0.12501, 0.0865934, 0.287441, -0.15, 0.0432967, 0.249961, -0.15, -2.72776e-15, -0.22502, -2.93702e-05, 0.0865934, -0.35, 0.15, 0.0432967, -0.250029, 0.15, 0.136603, -0.150059, -0.12501, 0.136603, 0.287441, -0.15, 0.0865934, 0.224951, -0.15, 0.0432967, -0.250029, -0.12501, 0.0865934, -0.28751, -2.93702e-05, 0.136603, -0.35, 0.12498, 0.0865934, -0.28751, 0.12498, 0.136603, -0.28751, 0.15, 0.0865934, -0.22502, -0.15, 0.136603, 0.14999, -0.15, 0.0865934, -0.22502, -0.12501, 0.136603, -0.28751, -0.15, 0.136603, -0.150059)
@@ -150,6 +151,12 @@ script = ExtResource("4_vv1l6")
 [node name="Camera3D" type="Camera3D" parent="Camera_pivot"]
 transform = Transform3D(-0.993635, -1.11047e-08, -0.112648, -0.0534762, 0.880138, 0.471697, 0.0991461, 0.474718, -0.874536, 0, 1.32072, -1.61032)
 
+[node name="PointSystem" parent="." instance=ExtResource("5_m2gok")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="flipped" from="." to="PointSystem" method="_on_skate_flipped"]
+[connection signal="made_air_points" from="." to="PointSystem" method="_on_skate_made_air_points"]
 [connection signal="is_dead" from="Character_Ragdoll/Area3D" to="." method="_on_area_3d_is_dead"]
 
 [editable path="Character_Ragdoll"]

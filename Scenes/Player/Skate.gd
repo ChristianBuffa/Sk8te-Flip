@@ -7,8 +7,12 @@ extends RigidBody3D
 @export var MAX_VELOCITY : float = 20
 
 var is_dead = false
+var max_air_points: int = 2.5
+var air_score
 signal flipped
+signal made_air_points(points)
 
+@onready var timer = $Timer
 @onready var animation_player = $Character_Ragdoll/AnimationPlayer2
 
 func _ready():
@@ -34,6 +38,13 @@ func check_is_on_floor() -> bool :
 	return $RayCast3D.is_colliding()
 
 func get_grounded_input(delta):
+	if timer.time_left > 0:
+		air_score = (max_air_points - timer.time_left) * 100
+		print(air_score)
+		emit_signal("made_air_points", air_score)
+		air_score = 0
+		timer.stop()
+	
 	if(Input.is_action_just_pressed("Accelerate")):
 		var forward = global_transform.basis * Vector3.FORWARD
 		var impulse = -forward * IMPULSE_FORCE
@@ -48,9 +59,12 @@ func get_grounded_input(delta):
 			
 	if Input.is_action_just_pressed("Flip"):
 		$SkateBoard_cs/AnimationPlayer.play("flip_animation")
+		flipped.emit()
 		apply_central_impulse(Vector3(0, JUMP_FORCE, 0))
 
 func get_air_input(delta):
+	timer.start(max_air_points)
+	
 	if Input.is_action_pressed("SwerveLeft"):
 			apply_torque_impulse(Vector3(0, ROTATION_ANGLE, 0) * delta)
 			
