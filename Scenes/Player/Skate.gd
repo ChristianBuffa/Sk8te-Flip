@@ -1,9 +1,10 @@
 extends RigidBody3D
 
-const JUMP_FORCE = 5
-const IMPULSE_FORCE = 10
-const SWERVE_FORCE = 5
-const ROTATION_ANGLE = 1
+@export var JUMP_FORCE : float = 5
+@export var IMPULSE_FORCE : float = 10
+@export var SWERVE_FORCE : float = 5
+@export var ROTATION_ANGLE : float = 1
+@export var MAX_VELOCITY : float = 20
 
 var is_dead = false
 
@@ -28,13 +29,14 @@ func _physics_process(delta):
 			var forward = global_transform.basis * Vector3.FORWARD
 			var impulse = -forward * IMPULSE_FORCE
 			apply_central_impulse(impulse)
-			
+			animation_player.play("skate")
+
 		if Input.is_action_pressed("SwerveLeft"):
 			apply_torque_impulse(Vector3(0, ROTATION_ANGLE, 0) * delta)
-			
+
 		if Input.is_action_pressed("SwerveRight"):
 			apply_torque_impulse(Vector3(0, -ROTATION_ANGLE, 0) * delta)
-			
+
 		if Input.is_action_just_pressed("Flip"):
 			$SkateBoard_cs/AnimationPlayer.play("flip_animation")
 			apply_central_impulse(Vector3(0, JUMP_FORCE, 0))
