@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @export var JUMP_FORCE : float = 5
-@export var IMPULSE_FORCE : float = 10
+@export var IMPULSE_FORCE : float = 5
 @export var SWERVE_FORCE : float = 5
 @export var ROTATION_ANGLE : float = 1
 @export var MAX_VELOCITY : float = 20
