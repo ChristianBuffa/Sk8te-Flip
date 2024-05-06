@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ljrjq6iv4dyv"]
+[gd_scene load_steps=6 format=3 uid="uid://ljrjq6iv4dyv"]
 
 [ext_resource type="Texture2D" uid="uid://c2alsjvluxeo4" path="res://Scenes/MainMenu/sakte-back2.jpg" id="1_n05yc"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/Menu.gd" id="1_xhi0i"]
+[ext_resource type="AudioStream" uid="uid://844rlvcw0j58" path="res://Audio/Music/Grab A Beer.mp3" id="3_h5rjn"]
 
 [sub_resource type="SystemFont" id="SystemFont_34tqp"]
 font_names = PackedStringArray("Impact")
@@ -74,3 +75,8 @@ layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_ydqjf")
 theme_override_font_sizes/font_size = 36
 text = "START GAME"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h5rjn")
+autoplay = true
+bus = &"Music"
