@@ -5,10 +5,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ppunh"]
 size = Vector3(1, 0.0506592, 1)
 
-[node name="FloorWood" instance=ExtResource("1_37tvg")]
+[node name="FloorWood" groups=["Obstacle"] instance=ExtResource("1_37tvg")]
+
+[node name="RootNode" parent="." index="0" groups=["Obstacle"]]
+
+[node name="floor_wood" parent="RootNode" index="0" groups=["Obstacle"]]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="RootNode/floor_wood" index="0" groups=["Obstacle"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/floor_wood/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/floor_wood/StaticBody3D" index="0" groups=["Obstacle"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0140991, 0)
 shape = SubResource("BoxShape3D_ppunh")
