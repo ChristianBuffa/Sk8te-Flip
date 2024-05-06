@@ -112,22 +112,21 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 
 [node name="Physical Bone root" parent="Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="2"]
 transform = Transform3D(0.984818, 0.17365, 0, 0, 0, -1, -0.17365, 0.984818, 0, 0, 0.337505, 0)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.337505)
 body_offset = Transform3D(1.00001, 5.36442e-07, 0, 0, 0, -1, -5.36442e-07, 1.00001, 0, 0, 0.337505, 0)
 
 [node name="Physical Bone torso" parent="Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="3"]
 transform = Transform3D(0.984818, 0.17365, 6.60528e-09, -4.28554e-09, 4.71482e-09, -1, -0.17365, 0.984818, 7.87851e-09, 0.00211508, 0.277387, 0.0119954)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84449e-08, -0.04093, 0.101137)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8445e-08, -0.04093, 0.101137)
 body_offset = Transform3D(1.00001, 5.36442e-07, 5.13684e-09, -4.28554e-09, 4.71482e-09, -1, -5.36442e-07, 1.00001, 8.90581e-09, -2.70084e-08, 0.101137, 0.0409304)
 
 [node name="Physical Bone head" parent="Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="4"]
 transform = Transform3D(0.642794, -0.766044, -6.33155e-09, -2.91038e-10, -9.16771e-10, -1, 0.766052, 0.642788, 1.53253e-09, -0.361323, 0.591498, -0.368769)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512697, -0.0409301, 0.248248)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512697, -0.0409302, 0.248248)
 body_offset = Transform3D(1.00001, 1.38581e-06, -2.89585e-09, -2.91038e-10, -9.16771e-10, -1, -4.69387e-07, 1, 5.83534e-09, -0.512702, 0.248248, 0.0409304)
 
 [node name="Physical Bone right leg" parent="Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="5"]
 transform = Transform3D(0.963059, -0.269326, 0, 0, 0, -1, 0.269326, 0.963059, 0, -0.587948, 0.063039, -0.174741)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525495, 0.0201545, -0.113211)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525495, 0.0201546, -0.113211)
 body_offset = Transform3D(1.00001, 1.19209e-07, 0, 0, 0, -1, -1.19209e-07, 1.00001, 0, -0.5255, -0.113211, -0.0201547)
 
 [node name="Physical Bone left leg" parent="Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="6"]
@@ -136,8 +135,8 @@ joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512885, 0.0201544, -0.11
 body_offset = Transform3D(1, -3.07336e-08, 0, 0, 0, -1, 3.07336e-08, 1, 0, -0.512885, -0.11074, -0.0201544)
 
 [node name="Physical Bone right arm" parent="Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="7"]
-transform = Transform3D(0.459262, -0.483591, -0.745095, 0.300268, 0.873959, -0.382062, 0.836012, -0.0482402, 0.546574, -0.55436, -0.00157642, 0.280628)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.060623, 0.0473493, -0.601322)
+transform = Transform3D(0.459262, -0.483591, -0.745094, 0.300268, 0.873959, -0.382061, 0.836012, -0.0482402, 0.546574, -0.55436, -0.00157645, 0.280628)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0606233, 0.0473494, -0.601322)
 body_offset = Transform3D(0.389103, -0.06706, -0.918687, 0.0822169, 0.99589, -0.0378175, 0.917517, -0.0608037, 0.393019, -0.57284, -0.0748795, 0.183587)
 
 [node name="Physical Bone left arm" parent="Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="8"]
