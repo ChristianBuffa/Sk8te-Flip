@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=18 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -16,10 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d306uuqh6d06v" path="res://Environment Prefabs/bowl_corner_inner.tscn" id="14_sh81s"]
 [ext_resource type="PackedScene" uid="uid://cl2duykm7vgvw" path="res://Environment Prefabs/bowl_corner_outer.tscn" id="15_su81n"]
 [ext_resource type="PackedScene" uid="uid://dge141g0bdyd0" path="res://Scenes/Player/skate.tscn" id="16_8blqo"]
-[ext_resource type="Script" path="res://Scenes/Score.gd" id="17_i6xfn"]
-
-[sub_resource type="SystemFont" id="SystemFont_8cdu5"]
-font_names = PackedStringArray("Impact")
+[ext_resource type="PackedScene" uid="uid://demn7didejaru" path="res://Scenes/scene_manager.tscn" id="17_vxpdx"]
 
 [node name="Environment" type="Node3D"]
 
@@ -152,6 +149,7 @@ transform = Transform3D(1, -2.26267e-08, 2.97886e-09, 2.26267e-08, 0.965926, -0.
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.12124, 0.40717, -8.98713)
 
 [node name="Rail" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="RailLow" parent="Rail" instance=ExtResource("9_rr5gk")]
 transform = Transform3D(-0.0168066, 0, -0.999859, 0, 1, 0, 0.999859, 0, -0.0168066, 7.45505, 0, 1.51507)
@@ -234,7 +232,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.8, 0, 2.8)
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.8, 0, 2.8)
 
 [node name="Bowl" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.041414, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.041414, -3)
 
 [node name="BowlSide" parent="Bowl" instance=ExtResource("13_nqe5c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
@@ -308,7 +306,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0553363, 2)
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 3, 0, 1)
 
 [node name="Bowl2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1187, 0.041414, -1.87557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1187, 0.041414, -1.87557)
 
 [node name="BowlSide" parent="Bowl2" instance=ExtResource("13_nqe5c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
@@ -370,7 +368,7 @@ transform = Transform3D(0.5, 0.813798, -0.296198, 0, 0.34202, 0.939693, 0.866025
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.872565, 0.0986233, -4.69409)
 
 [node name="BowlCornerOuter4" parent="." instance=ExtResource("15_su81n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22535, 0.0040894, -5.44431)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22535, 0.0040894, -15.4443)
 
 [node name="Bowl2" type="Node3D" parent="BowlCornerOuter4"]
 
@@ -487,26 +485,4 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.005
 [node name="BowlCornerOuter4" parent="BowlCornerOuter5/Bowl3" instance=ExtResource("15_su81n")]
 transform = Transform3D(-0.99994, 0, -0.0109431, 0, 1, 0, 0.0109431, 0, -0.99994, -0.0721442, 0, -3.88214)
 
-[node name="ScoreFlip" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="ScoreFlip"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 6.0
-offset_right = 129.0
-offset_bottom = 40.0
-script = ExtResource("17_i6xfn")
-
-[node name="Score" type="Label" parent="ScoreFlip/Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 259.5
-offset_top = -1.0
-offset_right = 685.5
-offset_bottom = 294.0
-grow_horizontal = 2
-theme_override_fonts/font = SubResource("SystemFont_8cdu5")
-theme_override_font_sizes/font_size = 36
-text = "	Score : "
+[node name="SceneManager" parent="." instance=ExtResource("17_vxpdx")]
