@@ -17,9 +17,9 @@ joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.271)
 body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.271, 0)
 
 [node name="Physical Bone torso" parent="Player/Root Scene/RootNode/character_skate_boy/Skeleton3D" index="3"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -1.44382e-15, 0.277387, 0.0121801)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0409301, 0.101137)
-body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.101137, 0.0409301)
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -1.38831e-15, 0.277387, 0.0121801)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.55112e-17, -0.0409301, 0.101137)
+body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 5.55112e-17, 0.101137, 0.0409301)
 
 [node name="Physical Bone right leg" parent="Player/Root Scene/RootNode/character_skate_boy/Skeleton3D" index="5"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.670242, 0.150253, -0.0489044)
@@ -37,9 +37,9 @@ joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0606067, 0.0473249, -0.6
 body_offset = Transform3D(0.389104, -0.0670598, -0.91875, 0.0822177, 0.995895, -0.0378702, 0.917517, -0.060802, 0.39302, -0.572842, -0.0748845, 0.183588)
 
 [node name="Physical Bone left arm" parent="Player/Root Scene/RootNode/character_skate_boy/Skeleton3D" index="8"]
-transform = Transform3D(-0.415567, -0.000279473, -0.909563, 0.0822177, 0.995895, -0.0378702, 0.905839, -0.0905198, -0.413838, -0.0913772, 0.207933, -0.164017)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0600225, 0.0661501, -0.237736)
-body_offset = Transform3D(-0.415567, -0.000279473, -0.909563, 0.0822177, 0.995895, -0.0378702, 0.905839, -0.0905198, -0.413838, -0.191274, -0.0798166, -0.146767)
+transform = Transform3D(-0.415567, -0.000279473, -0.909563, 0.0822177, 0.995895, -0.0378702, 0.905839, -0.0905198, -0.413838, -0.0913772, 0.207933, -0.164)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0600068, 0.0661517, -0.237729)
+body_offset = Transform3D(-0.415567, -0.000279473, -0.909563, 0.0822177, 0.995895, -0.0378702, 0.905839, -0.0905198, -0.413838, -0.191274, -0.0798166, -0.14675)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
