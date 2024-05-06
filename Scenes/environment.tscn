@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d306uuqh6d06v" path="res://Environment Prefabs/bowl_corner_inner.tscn" id="14_sh81s"]
 [ext_resource type="PackedScene" uid="uid://cl2duykm7vgvw" path="res://Environment Prefabs/bowl_corner_outer.tscn" id="15_su81n"]
 [ext_resource type="PackedScene" uid="uid://dge141g0bdyd0" path="res://Scenes/Player/skate.tscn" id="16_8blqo"]
-[ext_resource type="PackedScene" uid="uid://demn7didejaru" path="res://Scenes/scene_manager.tscn" id="17_0ba1k"]
+[ext_resource type="PackedScene" uid="uid://demn7didejaru" path="res://Scenes/scene_manager.tscn" id="17_bpak7"]
 
 [node name="Environment" type="Node3D"]
 
@@ -427,3 +427,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.005
 
 [node name="BowlCornerOuter4" parent="BowlCornerOuter5/Bowl3" instance=ExtResource("15_su81n")]
 transform = Transform3D(-0.99994, 0, -0.0109431, 0, 1, 0, 0.0109431, 0, -0.99994, -0.0721442, 0, -3.88214)
+
+[node name="SceneManager" parent="." instance=ExtResource("17_bpak7")]
