@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=19 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -16,7 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://d306uuqh6d06v" path="res://Environment Prefabs/bowl_corner_inner.tscn" id="14_sh81s"]
 [ext_resource type="PackedScene" uid="uid://cl2duykm7vgvw" path="res://Environment Prefabs/bowl_corner_outer.tscn" id="15_su81n"]
 [ext_resource type="PackedScene" uid="uid://dge141g0bdyd0" path="res://Scenes/Player/skate.tscn" id="16_8blqo"]
-[ext_resource type="PackedScene" uid="uid://demn7didejaru" path="res://Scenes/scene_manager.tscn" id="17_vxpdx"]
+[ext_resource type="Script" path="res://Scenes/Score.gd" id="17_i6xfn"]
+
+[sub_resource type="SystemFont" id="SystemFont_8cdu5"]
+font_names = PackedStringArray("Impact")
 
 [node name="Environment" type="Node3D"]
 
@@ -149,7 +152,6 @@ transform = Transform3D(1, -2.26267e-08, 2.97886e-09, 2.26267e-08, 0.965926, -0.
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.12124, 0.40717, -8.98713)
 
 [node name="Rail" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="RailLow" parent="Rail" instance=ExtResource("9_rr5gk")]
 transform = Transform3D(-0.0168066, 0, -0.999859, 0, 1, 0, 0.999859, 0, -0.0168066, 7.45505, 0, 1.51507)
@@ -232,7 +234,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.8, 0, 2.8)
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -1.8, 0, 2.8)
 
 [node name="Bowl" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.041414, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.041414, -3)
 
 [node name="BowlSide" parent="Bowl" instance=ExtResource("13_nqe5c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
@@ -306,7 +308,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0553363, 2)
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 3, 0, 1)
 
 [node name="Bowl2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1187, 0.041414, -1.87557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1187, 0.041414, -1.87557)
 
 [node name="BowlSide" parent="Bowl2" instance=ExtResource("13_nqe5c")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
@@ -367,8 +369,42 @@ transform = Transform3D(0.5, 0.813798, -0.296198, 0, 0.34202, 0.939693, 0.866025
 [node name="Player" parent="." instance=ExtResource("16_8blqo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.872565, 0.0986233, -4.69409)
 
+[node name="Physical Bone root" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="2"]
+transform = Transform3D(0.984818, 0.17365, 0, 0, 0, -1, -0.17365, 0.984818, 0, 0, 0.337505, 0)
+body_offset = Transform3D(1.00001, 5.36442e-07, 0, 0, 0, -1, -5.36442e-07, 1.00001, 0, 0, 0.337505, 0)
+
+[node name="Physical Bone torso" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="3"]
+transform = Transform3D(0.984818, 0.17365, 6.60528e-09, -4.28554e-09, 4.71482e-09, -1, -0.17365, 0.984818, 7.87851e-09, 0.00210977, 0.277387, 0.011996)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26659e-06, -0.0409296, 0.101137)
+body_offset = Transform3D(1.00001, 5.36442e-07, 5.13684e-09, -4.28554e-09, 4.71482e-09, -1, -5.36442e-07, 1.00001, 8.90581e-09, -5.24521e-06, 0.101137, 0.04093)
+
+[node name="Physical Bone head" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="4"]
+transform = Transform3D(0.642794, -0.766044, -6.33155e-09, -2.91038e-10, -9.16771e-10, -1, 0.766052, 0.642788, 1.53253e-09, -0.361323, 0.591498, -0.368768)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512697, -0.04093, 0.248248)
+body_offset = Transform3D(1.00001, 1.38581e-06, -2.89585e-09, -2.91038e-10, -9.16771e-10, -1, -4.69387e-07, 1, 5.83534e-09, -0.512702, 0.248248, 0.0409303)
+
+[node name="Physical Bone right leg" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="5"]
+transform = Transform3D(0.963059, -0.269326, 0, 0, 0, -1, 0.269326, 0.963059, 0, -0.587949, 0.063039, -0.174742)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525496, 0.0201555, -0.113211)
+body_offset = Transform3D(1.00001, 1.19209e-07, 0, 0, 0, -1, -1.19209e-07, 1.00001, 0, -0.525501, -0.113211, -0.0201557)
+
+[node name="Physical Bone left leg" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="6"]
+transform = Transform3D(0.701507, 0.712662, 0, 0, 0, -1, -0.712662, 0.701507, 0, -0.296847, 0.06551, 0.30855)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512885, 0.0201545, -0.11074)
+body_offset = Transform3D(1, -3.07336e-08, 0, 0, 0, -1, 3.07336e-08, 1, 0, -0.512885, -0.11074, -0.0201545)
+
+[node name="Physical Bone right arm" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="7"]
+transform = Transform3D(0.459262, -0.483591, -0.745095, 0.300268, 0.873959, -0.382062, 0.836012, -0.0482402, 0.546574, -0.554362, -0.00157687, 0.280628)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0606239, 0.0473489, -0.601323)
+body_offset = Transform3D(0.389103, -0.06706, -0.918687, 0.0822169, 0.99589, -0.0378175, 0.917517, -0.0608037, 0.393019, -0.572842, -0.0748792, 0.183587)
+
+[node name="Physical Bone left arm" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="8"]
+transform = Transform3D(-0.232418, 0.168414, -0.957941, 0.127388, 0.98177, 0.141655, 0.964241, -0.0891065, -0.249613, -0.129233, 0.249052, -0.145705)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0601116, 0.0658821, -0.23748)
+body_offset = Transform3D(-0.41557, -0.000266895, -0.909573, 0.0822173, 0.995983, -0.0378713, 0.905841, -0.0905182, -0.413844, -0.191008, -0.0795534, -0.146768)
+
 [node name="BowlCornerOuter4" parent="." instance=ExtResource("15_su81n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22535, 0.0040894, -15.4443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22535, 0.0040894, -5.44431)
 
 [node name="Bowl2" type="Node3D" parent="BowlCornerOuter4"]
 
@@ -485,4 +521,31 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.005
 [node name="BowlCornerOuter4" parent="BowlCornerOuter5/Bowl3" instance=ExtResource("15_su81n")]
 transform = Transform3D(-0.99994, 0, -0.0109431, 0, 1, 0, 0.0109431, 0, -0.99994, -0.0721442, 0, -3.88214)
 
-[node name="SceneManager" parent="." instance=ExtResource("17_vxpdx")]
+[node name="ScoreFlip" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="ScoreFlip"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_right = 129.0
+offset_bottom = 40.0
+script = ExtResource("17_i6xfn")
+
+[node name="Score" type="Label" parent="ScoreFlip/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 259.5
+offset_top = -1.0
+offset_right = 685.5
+offset_bottom = 294.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("SystemFont_8cdu5")
+theme_override_font_sizes/font_size = 36
+text = "	Score : "
+
+[connection signal="update_scoreUi" from="Player/PointSystem" to="ScoreFlip/Control" method="_on_point_system_update_score_ui"]
+
+[editable path="Player"]
+[editable path="Player/Character_Ragdoll"]
