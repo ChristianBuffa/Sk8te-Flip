@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=21 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://cl2duykm7vgvw" path="res://Environment Prefabs/bowl_corner_outer.tscn" id="15_su81n"]
 [ext_resource type="PackedScene" uid="uid://dge141g0bdyd0" path="res://Scenes/Player/skate.tscn" id="16_8blqo"]
 [ext_resource type="Script" path="res://Scenes/Score.gd" id="17_i6xfn"]
-[ext_resource type="AudioStream" uid="uid://cu0lsyyeykqyc" path="res://Audio/Music/Chipped Nail Polish.mp3" id="18_tu031"]
 
 [sub_resource type="SystemFont" id="SystemFont_8cdu5"]
 font_names = PackedStringArray("Impact")
@@ -378,6 +377,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.872565, 0.0986233, -4.69409
 
 [node name="Physical Bone root" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="2"]
 transform = Transform3D(0.984818, 0.17365, 0, 0, 0, -1, -0.17365, 0.984818, 0, 0, 0.337505, 0)
+body_offset = Transform3D(1.00001, 5.36442e-07, 0, 0, 0, -1, -5.36442e-07, 1.00001, 0, 0, 0.337505, 0)
 
 [node name="Physical Bone torso" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="3"]
 transform = Transform3D(0.984818, 0.17365, 6.60528e-09, -4.28554e-09, 4.71482e-09, -1, -0.17365, 0.984818, 7.87851e-09, 0.00210977, 0.277387, 0.011996)
@@ -386,12 +386,12 @@ body_offset = Transform3D(1.00001, 5.36442e-07, 5.13684e-09, -4.28554e-09, 4.714
 
 [node name="Physical Bone head" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="4"]
 transform = Transform3D(0.642794, -0.766044, -6.33155e-09, -2.91038e-10, -9.16771e-10, -1, 0.766052, 0.642788, 1.53253e-09, -0.361323, 0.591498, -0.368768)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512697, -0.0409301, 0.248248)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512697, -0.04093, 0.248248)
 body_offset = Transform3D(1.00001, 1.38581e-06, -2.89585e-09, -2.91038e-10, -9.16771e-10, -1, -4.69387e-07, 1, 5.83534e-09, -0.512702, 0.248248, 0.0409303)
 
 [node name="Physical Bone right leg" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="5"]
 transform = Transform3D(0.963059, -0.269326, 0, 0, 0, -1, 0.269326, 0.963059, 0, -0.587949, 0.063039, -0.174742)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525496, 0.0201556, -0.113211)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525496, 0.0201555, -0.113211)
 body_offset = Transform3D(1.00001, 1.19209e-07, 0, 0, 0, -1, -1.19209e-07, 1.00001, 0, -0.525501, -0.113211, -0.0201557)
 
 [node name="Physical Bone left leg" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="6"]
@@ -400,14 +400,14 @@ joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512885, 0.0201545, -0.11
 body_offset = Transform3D(1, -3.07336e-08, 0, 0, 0, -1, 3.07336e-08, 1, 0, -0.512885, -0.11074, -0.0201545)
 
 [node name="Physical Bone right arm" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="7"]
-transform = Transform3D(0.459262, -0.483591, -0.745094, 0.300268, 0.873959, -0.382061, 0.836012, -0.0482402, 0.546574, -0.554362, -0.00157702, 0.280629)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.060624, 0.0473489, -0.601324)
-body_offset = Transform3D(0.389103, -0.06706, -0.918687, 0.0822169, 0.99589, -0.0378175, 0.917517, -0.0608037, 0.393019, -0.572842, -0.0748792, 0.183587)
+transform = Transform3D(0.459262, -0.483591, -0.745093, 0.300268, 0.873959, -0.382056, 0.836012, -0.0482402, 0.546574, -0.554367, -0.00157782, 0.28063)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0606265, 0.0473498, -0.60133)
+body_offset = Transform3D(0.389103, -0.06706, -0.918683, 0.0822169, 0.99589, -0.0378135, 0.917517, -0.0608037, 0.393019, -0.572846, -0.0748781, 0.183587)
 
 [node name="Physical Bone left arm" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="8"]
 transform = Transform3D(-0.232418, 0.168414, -0.957941, 0.127388, 0.98177, 0.141655, 0.964241, -0.0891065, -0.249613, -0.129234, 0.249052, -0.145705)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0601116, 0.0658821, -0.237481)
-body_offset = Transform3D(-0.41557, -0.000266895, -0.909573, 0.0822173, 0.995983, -0.0378713, 0.905841, -0.0905182, -0.413844, -0.191008, -0.0795534, -0.146768)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0601114, 0.0658823, -0.237481)
+body_offset = Transform3D(-0.41557, -0.000266895, -0.909573, 0.0822173, 0.995983, -0.0378713, 0.905841, -0.0905182, -0.413844, -0.191008, -0.0795536, -0.146768)
 
 [node name="BowlCornerOuter4" parent="." instance=ExtResource("15_su81n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22535, 0.0040894, -5.44431)
@@ -550,11 +550,6 @@ grow_horizontal = 2
 theme_override_fonts/font = SubResource("SystemFont_8cdu5")
 theme_override_font_sizes/font_size = 36
 text = "	Score : "
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("18_tu031")
-autoplay = true
-bus = &"Music"
 
 [node name="Wall0" type="StaticBody3D" parent="."]
 transform = Transform3D(-5.15794e-08, 0, -1.18, 0, 1.18, 0, 1.18, 0, -5.15794e-08, 12.2289, 4.85356, -0.746794)

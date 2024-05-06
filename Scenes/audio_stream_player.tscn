@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://eqxf6q2nysfu"]
+
+[ext_resource type="AudioStream" uid="uid://cu0lsyyeykqyc" path="res://Audio/Music/Chipped Nail Polish.mp3" id="1_p2umr"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_p2umr")
+autoplay = true
+bus = &"Music"
