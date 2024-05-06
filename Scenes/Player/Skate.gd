@@ -4,10 +4,13 @@ const JUMP_FORCE = 5
 const IMPULSE_FORCE = 10
 const SWERVE_FORCE = 5
 const ROTATION_ANGLE = 1
-@onready var animation_player = $Character_Ragdoll/AnimationPlayer
+
+var is_dead = false
+
+@onready var animation_player = $Character_Ragdoll/AnimationPlayer2
 
 func _ready():
-	animation_player.play("idle")
+	animation_player.play("skate-stand")
 	
 
 func _process(delta):
@@ -15,6 +18,9 @@ func _process(delta):
 		animation_player.play("emote-yes")
 
 func _physics_process(delta):
+	if is_dead:
+		return
+	
 	var is_on_floor = check_is_on_floor()
 	
 	if(is_on_floor):
@@ -35,3 +41,7 @@ func _physics_process(delta):
 
 func check_is_on_floor() -> bool :
 	return $RayCast3D.is_colliding()
+
+
+func _on_area_3d_is_dead():
+	is_dead = true

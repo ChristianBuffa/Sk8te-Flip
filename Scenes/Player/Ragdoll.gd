@@ -6,6 +6,8 @@ extends Area3D
 @onready var character = $".."
 @onready var timer = $"../Timer"
 
+signal is_dead
+
 
 func _ready():
 	print("process false")
@@ -22,6 +24,7 @@ func _on_body_entered(body):
 	if(body.get_parent_node_3d() != null):
 		if(body.get_parent_node_3d().is_in_group("Obstacle")):
 			print("suca")
+			is_dead.emit()
 			timer.start(time_to_scene_reset)
 			character.top_level = true
 			skeleton_3d.set_process(true)
