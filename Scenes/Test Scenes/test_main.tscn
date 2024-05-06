@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bryh8417dalhb"]
 
-[ext_resource type="Script" path="res://Scenes/camera_follow.gd" id="2_8ugw2"]
+[ext_resource type="Script" path="res://Scenes/Camera/camera_follow.gd" id="2_8ugw2"]
 [ext_resource type="PackedScene" uid="uid://c4gwv3qumqyqu" path="res://Scenes/SampleCharacter.tscn" id="5_8a3kg"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_a3inx"]

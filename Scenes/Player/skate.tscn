@@ -1,16 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxy4bwe8tu2cy"]
+[gd_scene load_steps=7 format=3 uid="uid://dge141g0bdyd0"]
 
-[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_3mnds"]
-[ext_resource type="Texture2D" uid="uid://c0on8q16axhb1" path="res://Mini Skate/FBX format/skateboard-574cd99b67f687f2ccb3d6c12bb685f0_colormap.png" id="2_bosq2"]
-[ext_resource type="PackedScene" uid="uid://cn82sur21s1vy" path="res://Scenes/Player/base_character.tscn" id="2_okvqg"]
-[ext_resource type="Script" path="res://Scenes/camera_follow.gd" id="4_5ah10"]
+[ext_resource type="Script" path="res://Scenes/Player/Skate.gd" id="1_mav0y"]
+[ext_resource type="Texture2D" uid="uid://c0on8q16axhb1" path="res://Mini Skate/FBX format/skateboard-574cd99b67f687f2ccb3d6c12bb685f0_colormap.png" id="2_8ipfh"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yr1u5"]
-size = Vector3(0.277043, 0.136264, 0.583252)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2dbxc"]
+points = PackedVector3Array(0.15, 0.0432967, 0.249961, 0.15, -2.72776e-15, 0.224951, 0.15, 0.0865934, 0.224951, 0.12498, 0.136603, 0.287441, 0.12498, 0.0865934, 0.287441, -2.93702e-05, 0.0865934, 0.349932, -0.15, -2.72776e-15, 0.224951, 0.15, -2.72776e-15, -0.22502, 0.15, 0.136603, 0.14999, -2.93702e-05, 0.136603, 0.349932, -0.12501, 0.0865934, 0.287441, -0.15, 0.0432967, 0.249961, -0.15, -2.72776e-15, -0.22502, -2.93702e-05, 0.0865934, -0.35, 0.15, 0.0432967, -0.250029, 0.15, 0.136603, -0.150059, -0.12501, 0.136603, 0.287441, -0.15, 0.0865934, 0.224951, -0.15, 0.0432967, -0.250029, -0.12501, 0.0865934, -0.28751, -2.93702e-05, 0.136603, -0.35, 0.12498, 0.0865934, -0.28751, 0.12498, 0.136603, -0.28751, 0.15, 0.0865934, -0.22502, -0.15, 0.136603, 0.14999, -0.15, 0.0865934, -0.22502, -0.12501, 0.136603, -0.28751, -0.15, 0.136603, -0.150059)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ib45"]
 resource_name = "colormap"
-albedo_texture = ExtResource("2_bosq2")
+albedo_texture = ExtResource("2_8ipfh")
 metallic = 0.2
 roughness = 0.8
 
@@ -48,64 +46,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_medmt")
 
-[node name="Player" type="VehicleBody3D"]
-script = ExtResource("1_3mnds")
-acceleration = 10.0
-maxSpeed = 100.0
-minSpeed = -10.0
+[node name="Skate" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.08845, 0)
+linear_damp = 0.1
+script = ExtResource("1_mav0y")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.00604, 0, 0, 0, 1.00604, 0, 0, 0, 1.00604, -0.00503794, 0.0675451, 0.00012207)
-shape = SubResource("BoxShape3D_yr1u5")
+[node name="SkateBoard_cs" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_2dbxc")
 
-[node name="skateboard" type="MeshInstance3D" parent="."]
+[node name="skateboard" type="MeshInstance3D" parent="SkateBoard_cs"]
 mesh = SubResource("ArrayMesh_6drva")
 skeleton = NodePath("")
 
-[node name="FrontLeftWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.0390057, 0.200862)
-use_as_traction = true
-use_as_steering = true
-wheel_radius = 0.04
-suspension_travel = 0.01
-suspension_stiffness = 200.0
-damping_compression = 1.0
-damping_relaxation = 5.0
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999779, -9.31116e-10, -0.0210471, -0.0105038, 0.866566, 0.498952, 0.0182387, 0.499063, -0.866374, 0, 0.773939, -2.07186)
 
-[node name="BackLeftWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.0389481, -0.198)
-use_as_traction = true
-wheel_radius = 0.04
-suspension_travel = 0.01
-suspension_stiffness = 200.0
-damping_compression = 1.0
-damping_relaxation = 5.0
-
-[node name="BackRightWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.0389481, -0.198)
-use_as_traction = true
-wheel_radius = 0.04
-suspension_travel = 0.01
-suspension_stiffness = 200.0
-damping_compression = 1.0
-damping_relaxation = 5.0
-
-[node name="FrontRightWheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.0389481, 0.201)
-use_as_traction = true
-use_as_steering = true
-wheel_radius = 0.04
-suspension_travel = 0.01
-suspension_stiffness = 200.0
-damping_compression = 1.0
-damping_relaxation = 5.0
-
-[node name="Root Scene" parent="." instance=ExtResource("2_okvqg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137802, 0)
-
-[node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340598, 0)
-script = ExtResource("4_5ah10")
-
-[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-1, -1.51808e-08, 8.60946e-08, 0, 0.984808, 0.173648, -8.74228e-08, 0.173648, -0.984808, 0, 0.496417, -1.81306)
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.086988, 0)
+target_position = Vector3(0, -0.16, 0)
