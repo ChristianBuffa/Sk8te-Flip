@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://eqxf6q2nysfu"]
 
-[ext_resource type="AudioStream" uid="uid://cu0lsyyeykqyc" path="res://Audio/Music/Chipped Nail Polish.mp3" id="1_p2umr"]
+[ext_resource type="AudioStream" uid="uid://844rlvcw0j58" path="res://Audio/Music/Grab A Beer.mp3" id="1_fiw6e"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_p2umr")
+stream = ExtResource("1_fiw6e")
 autoplay = true
 bus = &"Music"
