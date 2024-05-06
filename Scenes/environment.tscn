@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=19 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://blhdam0by4l6u" path="res://Environment Prefabs/obstacle_end.tscn" id="5_nfta3"]
 [ext_resource type="PackedScene" uid="uid://oycbjynhyg4x" path="res://Environment Prefabs/steps.tscn" id="6_wxx4a"]
 [ext_resource type="PackedScene" uid="uid://c4qgws1lsw0l7" path="res://Environment Prefabs/rail_slope.tscn" id="7_g402y"]
-[ext_resource type="PackedScene" uid="uid://b0vdu7uaoehan" path="res://Environment Prefabs/rail_curve.tscn" id="8_08tmp"]
-[ext_resource type="PackedScene" uid="uid://cdadno3txgxcp" path="res://Environment Prefabs/rail_low.tscn" id="9_rr5gk"]
 [ext_resource type="PackedScene" uid="uid://c07183d30kedw" path="res://Environment Prefabs/structure_platform.tscn" id="10_6ovlp"]
 [ext_resource type="PackedScene" uid="uid://crqp4p51oo3mt" path="res://Environment Prefabs/floor_wood.tscn" id="10_hyd5s"]
 [ext_resource type="PackedScene" uid="uid://c1y56asyxdfjb" path="res://Environment Prefabs/half_pipe.tscn" id="12_jxd58"]
@@ -39,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 transform = Transform3D(0.97093, 0, -0.239364, 0, 1, 0, 0.239364, 0, 0.97093, 0, 0.13525, -2)
 
 [node name="WoodenStructure" type="Node3D" parent="."]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 10.9092, 0, -2.08885)
 
 [node name="Steps2" parent="WoodenStructure" instance=ExtResource("6_wxx4a")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.1789, 0, -9.93644)
@@ -95,7 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1789, 0.4, -8.43503)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178898, 0, -6.93644)
 
 [node name="WoodenStructure2" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.09107, 0, -2.40534)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.91576, 0, -7.90571)
 
 [node name="Steps2" parent="WoodenStructure2" instance=ExtResource("6_wxx4a")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, -10)
@@ -156,18 +155,6 @@ transform = Transform3D(1, -2.26267e-08, 2.97886e-09, 2.26267e-08, 0.965926, -0.
 
 [node name="Pallet3" parent="WoodenStructure2" instance=ExtResource("3_73fdy")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.12124, 0.40717, -8.98713)
-
-[node name="Rail" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2216, 0, 0)
-
-[node name="RailLow" parent="Rail" instance=ExtResource("9_rr5gk")]
-transform = Transform3D(-0.0168066, 0, -0.999859, 0, 1, 0, 0.999859, 0, -0.0168066, 7.45505, 0, 1.51507)
-
-[node name="RailLow2" parent="Rail" instance=ExtResource("9_rr5gk")]
-transform = Transform3D(-0.999859, 0, 0.0168067, 0, 1, 0, -0.0168067, 0, -0.999859, 8.47171, 0, 0.532019)
-
-[node name="RailCurve" parent="Rail" instance=ExtResource("8_08tmp")]
-transform = Transform3D(-0.999859, 0, 0.0168067, 0, 1, 0, -0.0168067, 0, -0.999859, 7.94657, 0, 2.0234)
 
 [node name="Obstacle" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58022, 0, 0)
@@ -375,7 +362,7 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 3, 0, 1)
 transform = Transform3D(0.5, 0.813798, -0.296198, 0, 0.34202, 0.939693, 0.866025, -0.469846, 0.17101, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("16_8blqo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0787, 4.43906, -10.8451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0787, 4.43906, -11.0105)
 
 [node name="Physical Bone root" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="2"]
 transform = Transform3D(0.984818, 0.17365, 0, 0, 0, -1, -0.17365, 0.984818, 0, 0, 0.3374, 0)
@@ -383,37 +370,37 @@ joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3374)
 body_offset = Transform3D(1.00001, 5.36442e-07, 0, 0, 0, -1, -5.36442e-07, 1.00001, 0, 0, 0.3374, 0)
 
 [node name="Physical Bone torso" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="3"]
-transform = Transform3D(0.984818, 0.17365, 6.60528e-09, -4.28554e-09, 4.71482e-09, -1, -0.17365, 0.984818, 7.87851e-09, 0.00187016, 0.277343, 0.00964117)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000167825, -0.0385691, 0.101093)
-body_offset = Transform3D(1.00001, 5.36442e-07, 5.13684e-09, -4.28554e-09, 4.71482e-09, -1, -5.36442e-07, 1.00001, 8.90581e-09, 0.000167847, 0.101093, 0.0385695)
+transform = Transform3D(0.984818, 0.17365, 6.60528e-09, -4.28554e-09, 4.71482e-09, -1, -0.17365, 0.984818, 7.87851e-09, 0.00188255, 0.277343, 0.00961018)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000184991, -0.0385405, 0.101093)
+body_offset = Transform3D(1.00001, 5.36442e-07, 5.13684e-09, -4.28554e-09, 4.71482e-09, -1, -5.36442e-07, 1.00001, 8.90581e-09, 0.000185013, 0.101093, 0.0385408)
 
 [node name="Physical Bone head" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="4"]
-transform = Transform3D(0.642794, -0.766044, -6.33155e-09, -2.91038e-10, -9.16771e-10, -1, 0.766052, 0.642788, 1.53253e-09, -0.363928, 0.591551, -0.368454)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.514131, -0.0431278, 0.248301)
-body_offset = Transform3D(1.00001, 1.38581e-06, -2.89585e-09, -2.91038e-10, -9.16771e-10, -1, -4.69387e-07, 1, 5.83534e-09, -0.514136, 0.248301, 0.043128)
+transform = Transform3D(0.642794, -0.766044, -6.33155e-09, -2.91038e-10, -9.16771e-10, -1, 0.766052, 0.642788, 1.53253e-09, -0.363838, 0.591551, -0.368492)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.514102, -0.0430353, 0.248301)
+body_offset = Transform3D(1.00001, 1.38581e-06, -2.89585e-09, -2.91038e-10, -9.16771e-10, -1, -4.69387e-07, 1, 5.83534e-09, -0.514107, 0.248301, 0.0430355)
 
 [node name="Physical Bone right leg" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="5"]
-transform = Transform3D(0.963059, -0.269326, 0, 0, 0, -1, 0.269326, 0.963059, 0, -0.589654, 0.0629878, -0.174747)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52714, 0.0197013, -0.113262)
-body_offset = Transform3D(1.00001, 1.19209e-07, 0, 0, 0, -1, -1.19209e-07, 1.00001, 0, -0.527145, -0.113262, -0.0197015)
+transform = Transform3D(0.963059, -0.269326, 0, 0, 0, -1, 0.269326, 0.963059, 0, -0.589666, 0.0629878, -0.174747)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.527151, 0.0196971, -0.113262)
+body_offset = Transform3D(1.00001, 1.19209e-07, 0, 0, 0, -1, -1.19209e-07, 1.00001, 0, -0.527157, -0.113262, -0.0196972)
 
 [node name="Physical Bone left leg" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="6"]
-transform = Transform3D(0.701507, 0.712662, 0, 0, 0, -1, -0.712662, 0.701507, 0, -0.29599, 0.0654302, 0.30804)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51192, 0.0199022, -0.11082)
-body_offset = Transform3D(1, -3.07336e-08, 0, 0, 0, -1, 3.07336e-08, 1, 0, -0.51192, -0.11082, -0.0199022)
+transform = Transform3D(0.701507, 0.712662, 0, 0, 0, -1, -0.712662, 0.701507, 0, -0.296011, 0.0654302, 0.308029)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.511928, 0.0199241, -0.11082)
+body_offset = Transform3D(1, -3.07336e-08, 0, 0, 0, -1, 3.07336e-08, 1, 0, -0.511928, -0.11082, -0.0199242)
 
 [node name="Physical Bone right arm" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="7"]
-transform = Transform3D(0.459262, -0.483591, -0.745087, 0.300268, 0.873959, -0.382045, 0.836012, -0.0482402, 0.546571, -0.574688, 0.00467682, 0.26885)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0779309, 0.0314929, -0.60765)
-body_offset = Transform3D(0.389103, -0.06706, -0.918674, 0.0822169, 0.99589, -0.0378057, 0.917517, -0.0608037, 0.393018, -0.586443, -0.0607433, 0.16923)
+transform = Transform3D(0.459262, -0.483591, -0.745075, 0.300268, 0.873959, -0.382022, 0.836012, -0.0482402, 0.546564, -0.574691, 0.00467968, 0.268863)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0779251, 0.0314982, -0.607671)
+body_offset = Transform3D(0.389103, -0.06706, -0.918652, 0.0822169, 0.99589, -0.0377897, 0.917517, -0.0608037, 0.393015, -0.586447, -0.0607393, 0.169241)
 
 [node name="Physical Bone left arm" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="8"]
-transform = Transform3D(-0.232418, 0.168414, -0.957941, 0.127388, 0.98177, 0.141655, 0.964241, -0.0891065, -0.249613, -0.143074, 0.26605, -0.159267)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0678075, 0.0503188, -0.256533)
-body_offset = Transform3D(-0.41557, -0.000266895, -0.909573, 0.0822173, 0.995983, -0.0378713, 0.905841, -0.0905182, -0.413844, -0.205143, -0.0654068, -0.163033)
+transform = Transform3D(-0.232418, 0.168414, -0.957941, 0.127388, 0.98177, 0.141655, 0.964241, -0.0891065, -0.249613, -0.143097, 0.266053, -0.159272)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0678058, 0.0503199, -0.256556)
+body_offset = Transform3D(-0.41557, -0.000266895, -0.909573, 0.0822173, 0.995983, -0.0378713, 0.905841, -0.0905182, -0.413844, -0.205165, -0.0654087, -0.163041)
 
 [node name="BowlCornerOuter4" parent="." instance=ExtResource("15_su81n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22535, 0.0040894, -5.44431)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.22761, 0.0217087, -5.47084)
 
 [node name="Bowl2" type="Node3D" parent="BowlCornerOuter4"]
 
@@ -454,7 +441,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.93394, 0, -2.89492)
 transform = Transform3D(0.0383878, 0, 0.999263, 0, 1, 0, -0.999263, 0, 0.0383878, 2.94675, 0.0129873, -3.88176)
 
 [node name="HalfPipe3" parent="BowlCornerOuter4/Bowl3" instance=ExtResource("12_jxd58")]
-transform = Transform3D(-0.0174523, 0, -0.999848, 0, 1, 0, 0.999848, 0, -0.0174523, -0.0603288, 0, -2.9184)
+transform = Transform3D(-0.0174523, 0, -0.999848, 0, 1, 0, 0.999848, 0, -0.0174523, -0.0603287, 0, -2.9184)
 
 [node name="BowlCornerInner" parent="BowlCornerOuter4/Bowl3" instance=ExtResource("14_sh81s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.939762, 0, -2.89448)

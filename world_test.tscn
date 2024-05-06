@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://c751ewtfk0hvr"]
+
+[ext_resource type="PackedScene" uid="uid://dge141g0bdyd0" path="res://Scenes/Player/skate.tscn" id="2_btgn8"]
+[ext_resource type="Texture2D" uid="uid://c0ht2qd6m51hm" path="res://icon.svg" id="2_h333c"]
+
+[sub_resource type="Environment" id="Environment_gk8jn"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3n4y4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3bm5"]
+size = Vector3(21.605, 1, 22.65)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chjbp"]
+albedo_texture = ExtResource("2_h333c")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_q0tf7"]
+material = SubResource("StandardMaterial3D_chjbp")
+size = Vector3(25.915, 1, 22.925)
+
+[node name="world test" type="WorldEnvironment"]
+environment = SubResource("Environment_gk8jn")
+camera_attributes = SubResource("CameraAttributesPractical_3n4y4")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255457, 0)
+shape = SubResource("BoxShape3D_p3bm5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_q0tf7")
+
+[node name="Skate" parent="." instance=ExtResource("2_btgn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.44608, 0)
