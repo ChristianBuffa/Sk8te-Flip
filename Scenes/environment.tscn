@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=22 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -21,6 +21,12 @@
 
 [sub_resource type="SystemFont" id="SystemFont_8cdu5"]
 font_names = PackedStringArray("Impact")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bldva"]
+points = PackedVector3Array(9.85, 4.9325, 0, 9.85, -4.9325, 0, -9.85, 4.9325, 0, -9.85, -4.9325, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_853q4"]
+size = Vector2(19.7, 9.865)
 
 [node name="Environment" type="Node3D"]
 
@@ -372,7 +378,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.872565, 0.0986233, -4.69409
 
 [node name="Physical Bone root" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="2"]
 transform = Transform3D(0.984818, 0.17365, 0, 0, 0, -1, -0.17365, 0.984818, 0, 0, 0.337505, 0)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.337505)
 body_offset = Transform3D(1.00001, 5.36442e-07, 0, 0, 0, -1, -5.36442e-07, 1.00001, 0, 0, 0.337505, 0)
 
 [node name="Physical Bone torso" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="3"]
@@ -396,9 +401,9 @@ joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512885, 0.0201545, -0.11
 body_offset = Transform3D(1, -3.07336e-08, 0, 0, 0, -1, 3.07336e-08, 1, 0, -0.512885, -0.11074, -0.0201545)
 
 [node name="Physical Bone right arm" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="7"]
-transform = Transform3D(0.459262, -0.483591, -0.745093, 0.300268, 0.873959, -0.382056, 0.836012, -0.0482402, 0.546574, -0.554367, -0.00157782, 0.28063)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0606265, 0.0473498, -0.60133)
-body_offset = Transform3D(0.389103, -0.06706, -0.918683, 0.0822169, 0.99589, -0.0378135, 0.917517, -0.0608037, 0.393019, -0.572846, -0.0748781, 0.183587)
+transform = Transform3D(0.459262, -0.483591, -0.745087, 0.300268, 0.873959, -0.382045, 0.836012, -0.0482402, 0.546571, -0.554367, -0.00157776, 0.28063)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0606288, 0.0473537, -0.601336)
+body_offset = Transform3D(0.389103, -0.06706, -0.918674, 0.0822169, 0.99589, -0.0378057, 0.917517, -0.0608037, 0.393018, -0.572847, -0.0748777, 0.183588)
 
 [node name="Physical Bone left arm" parent="Player/Character_Ragdoll/RootNode/character_skate_boy/Skeleton3D" index="8"]
 transform = Transform3D(-0.232418, 0.168414, -0.957941, 0.127388, 0.98177, 0.141655, 0.964241, -0.0891065, -0.249613, -0.129234, 0.249052, -0.145705)
@@ -551,6 +556,46 @@ text = "	Score : "
 stream = ExtResource("18_tu031")
 autoplay = true
 bus = &"Music"
+
+[node name="Wall0" type="StaticBody3D" parent="."]
+transform = Transform3D(-5.15794e-08, 0, -1.18, 0, 1.18, 0, 1.18, 0, -5.15794e-08, 12.2289, 4.85356, -0.746794)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall0"]
+shape = SubResource("ConvexPolygonShape3D_bldva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall0/CollisionShape3D"]
+mesh = SubResource("QuadMesh_853q4")
+skeleton = NodePath("../../..")
+
+[node name="Wall1" type="StaticBody3D" parent="."]
+transform = Transform3D(-5.15794e-08, 0, 1.18, 0, 1.18, 0, -1.18, 0, -5.15794e-08, -11.4801, 4.85356, -0.746794)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1"]
+shape = SubResource("ConvexPolygonShape3D_bldva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall1/CollisionShape3D"]
+mesh = SubResource("QuadMesh_853q4")
+skeleton = NodePath("../../..")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1.385, 0, 0, 0, 1.385, 0, 0, 0, 1.385, 0.160815, 4.85356, -11.4019)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+shape = SubResource("ConvexPolygonShape3D_bldva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2/CollisionShape3D"]
+mesh = SubResource("QuadMesh_853q4")
+skeleton = NodePath("../../..")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.385, 0, -2.09129e-07, 0, 1.385, 0, 2.09129e-07, 0, -1.385, 0.627261, 5.14217, 9.5009)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+shape = SubResource("ConvexPolygonShape3D_bldva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3/CollisionShape3D"]
+mesh = SubResource("QuadMesh_853q4")
+skeleton = NodePath("../../..")
 
 [connection signal="update_scoreUi" from="Player/PointSystem" to="ScoreFlip/Control" method="_on_point_system_update_score_ui"]
 
