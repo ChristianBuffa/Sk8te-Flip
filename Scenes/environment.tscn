@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=22 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cl2duykm7vgvw" path="res://Environment Prefabs/bowl_corner_outer.tscn" id="15_su81n"]
 [ext_resource type="PackedScene" uid="uid://dge141g0bdyd0" path="res://Scenes/Player/skate.tscn" id="16_8blqo"]
 [ext_resource type="Script" path="res://Scenes/Score.gd" id="17_i6xfn"]
+[ext_resource type="PackedScene" uid="uid://demn7didejaru" path="res://Scenes/scene_manager.tscn" id="18_ygrqi"]
 
 [sub_resource type="SystemFont" id="SystemFont_8cdu5"]
 font_names = PackedStringArray("Impact")
@@ -590,6 +591,8 @@ shape = SubResource("ConvexPolygonShape3D_bldva")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3/CollisionShape3D"]
 mesh = SubResource("QuadMesh_853q4")
 skeleton = NodePath("../../..")
+
+[node name="SceneManager" parent="." instance=ExtResource("18_ygrqi")]
 
 [connection signal="update_scoreUi" from="Player/PointSystem" to="ScoreFlip/Control" method="_on_point_system_update_score_ui"]
 
