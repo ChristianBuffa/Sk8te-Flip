@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://hkqxvv43a5na"]
+[gd_scene load_steps=22 format=3 uid="uid://hkqxvv43a5na"]
 
 [ext_resource type="PackedScene" uid="uid://53178nmt2uuu" path="res://Environment Prefabs/floor_concrete.tscn" id="1_d6y7l"]
 [ext_resource type="PackedScene" uid="uid://bo3ud2t0rd2fd" path="res://Environment Prefabs/obstacle_box.tscn" id="2_d5vch"]
@@ -17,9 +17,16 @@
 [ext_resource type="PackedScene" uid="uid://cl2duykm7vgvw" path="res://Environment Prefabs/bowl_corner_outer.tscn" id="15_su81n"]
 [ext_resource type="PackedScene" uid="uid://dge141g0bdyd0" path="res://Scenes/Player/skate.tscn" id="16_8blqo"]
 [ext_resource type="Script" path="res://Scenes/Score.gd" id="17_i6xfn"]
+[ext_resource type="AudioStream" uid="uid://cu0lsyyeykqyc" path="res://Audio/Music/Chipped Nail Polish.mp3" id="18_tu031"]
 
 [sub_resource type="SystemFont" id="SystemFont_8cdu5"]
 font_names = PackedStringArray("Impact")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bldva"]
+points = PackedVector3Array(9.85, 4.9325, 0, 9.85, -4.9325, 0, -9.85, 4.9325, 0, -9.85, -4.9325, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_853q4"]
+size = Vector2(19.7, 9.865)
 
 [node name="Environment" type="Node3D"]
 
@@ -543,6 +550,51 @@ grow_horizontal = 2
 theme_override_fonts/font = SubResource("SystemFont_8cdu5")
 theme_override_font_sizes/font_size = 36
 text = "	Score : "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_tu031")
+autoplay = true
+bus = &"Music"
+
+[node name="Wall0" type="StaticBody3D" parent="."]
+transform = Transform3D(-5.15794e-08, 0, -1.18, 0, 1.18, 0, 1.18, 0, -5.15794e-08, 12.2289, 4.85356, -0.746794)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall0"]
+shape = SubResource("ConvexPolygonShape3D_bldva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall0/CollisionShape3D"]
+mesh = SubResource("QuadMesh_853q4")
+skeleton = NodePath("../../..")
+
+[node name="Wall1" type="StaticBody3D" parent="."]
+transform = Transform3D(-5.15794e-08, 0, 1.18, 0, 1.18, 0, -1.18, 0, -5.15794e-08, -11.4801, 4.85356, -0.746794)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1"]
+shape = SubResource("ConvexPolygonShape3D_bldva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall1/CollisionShape3D"]
+mesh = SubResource("QuadMesh_853q4")
+skeleton = NodePath("../../..")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1.385, 0, 0, 0, 1.385, 0, 0, 0, 1.385, 0.160815, 4.85356, -11.4019)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+shape = SubResource("ConvexPolygonShape3D_bldva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2/CollisionShape3D"]
+mesh = SubResource("QuadMesh_853q4")
+skeleton = NodePath("../../..")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-1.385, 0, -2.09129e-07, 0, 1.385, 0, 2.09129e-07, 0, -1.385, 0.627261, 5.14217, 9.5009)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+shape = SubResource("ConvexPolygonShape3D_bldva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3/CollisionShape3D"]
+mesh = SubResource("QuadMesh_853q4")
+skeleton = NodePath("../../..")
 
 [connection signal="update_scoreUi" from="Player/PointSystem" to="ScoreFlip/Control" method="_on_point_system_update_score_ui"]
 
