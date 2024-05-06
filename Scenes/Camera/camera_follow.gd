@@ -1,7 +1,8 @@
 extends Node3D
 
 var direction = Vector3.FORWARD
-@export_range (1,10,0.1) var smooth_speed: float = 2.5
+@export_range (1,10,0.1) var smooth_speed: float = 4
+@onready var skate = $".."
 
 
 func _process(delta):
@@ -10,6 +11,8 @@ func _process(delta):
 	
 	if current_velocity.length_squared() > 0.01:
 		direction = lerp(direction, -current_velocity.normalized(), smooth_speed * delta)
+	else:
+		direction = lerp(direction, -skate.global_transform.basis.z, smooth_speed * delta)
 	
 	global_transform.basis = get_rotation_from_direction(direction)
 
