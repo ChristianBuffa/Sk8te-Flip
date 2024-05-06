@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxj3f2jqdf3bm"]
+
+[ext_resource type="PackedScene" uid="uid://ckqr7fyq7vttd" path="res://Mini Skate/FBX format/character-skate-boy.fbx" id="1_yutsc"]
+
+[node name="Root Scene" instance=ExtResource("1_yutsc")]
+
+[node name="Skeleton3D" parent="RootNode/character_skate_boy" index="0"]
+bones/5/rotation = Quaternion(0, 0, 0.382683, 0.92388)
